@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pos_template/auto_router.gr.dart';
+import 'package:url_strategy/url_strategy.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  setPathUrlStrategy();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   final _appRouter = AppRouter();
@@ -10,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Inter",
         textTheme: const TextTheme(

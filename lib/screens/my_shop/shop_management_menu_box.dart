@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:auto_route/auto_route.dart';
+import 'package:pos_template/auto_router.gr.dart';
+
 import 'package:pos_template/utilities/pos_colors.dart';
 
 class ShopManagementMenuBox extends StatelessWidget {
@@ -22,15 +25,20 @@ class ShopManagementMenuBox extends StatelessWidget {
             color: POSColors.lightGray,
           ),
           const SizedBox(height: 8),
-          Column(
-            children: const [
-              Image(
-                image: AssetImage('images/my_shop/library.png'),
-                height: 47,
-                width: 46,
-              ),
-              Text("Library"),
-            ],
+          GestureDetector(
+            onTap: () {
+              context.router.pushNamed('/library');
+            },
+            child: Column(
+              children: const [
+                Image(
+                  image: AssetImage('images/my_shop/library.png'),
+                  height: 47,
+                  width: 46,
+                ),
+                Text("Library"),
+              ],
+            ),
           ),
           const SizedBox(
             height: 106,

@@ -14,13 +14,24 @@ class LibraryScreen extends StatefulWidget {
 class _LibraryScreenState extends State<LibraryScreen> {
   @override
   Widget build(BuildContext context) {
+    List<int> text = [1, 2, 3, 4];
+
     return Scaffold(
       appBar: POSAppBar(title: "Library"),
       bottomNavigationBar: Container(height: 48, color: POSColors.darkBlue),
       body: Column(
-        children: const <Widget>[
-          // Shop
-          Text("This is Library")
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 41),
+            child: Text("Search Items"),
+          ),
+          Container(
+            child: Column(
+              children: List.generate(text.length, (index) {
+                return Text(text[index].toString());
+              }),
+            ),
+          )
         ],
       ),
     );
